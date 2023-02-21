@@ -1,0 +1,58 @@
+{% extends "layout.html" %}}
+
+{% block title %}
+Practice
+{% endblock %}
+
+{% block main%}
+<div class="d-flex me-md-3 justify-content-center position-static">
+    <form action="practice" method="post">
+        <button value="start" name="start" class="btn btn-outline-success btn-lg">Start Quiz!</button>
+    </form>
+</div>
+<br>
+<div class="d-flex me-md-3 justify-content-center position-static">
+    <table class="table table-striped w-25">
+        <thead>
+            <tr>
+                <th scope="col"> Practice List </th>
+                <th scope="col"> Score </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for word in words %}
+
+            <tr>
+                <td>{{ words[loop.index-1][0] }}</td>
+                <td name="score"> {{ scores[loop.index-1] }} </td>
+                <td><form action="practice" method="post">
+                    <button value="{{ words[loop.index-1][0] }}" class="btn btn-danger btn-sm" name="remove">Remove</button>
+                </form></td>
+                
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    
+
+    scores = document.getElementsByName("score")
+    
+
+    for (i = 0; i < scores.length; i++){
+        score = scores[i]
+        if (score.innerHTML > 0) {
+            score.style.color = 'lightgreen';
+        } 
+        else if (score.innerHTML < 0) {
+            score.style.color = 'pink';
+        }
+    }
+
+
+</script>
+
+{% endblock %}

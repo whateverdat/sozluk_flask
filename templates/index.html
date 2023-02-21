@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Sozluk
+{% endblock %}
+
+{% block main%}
+
+<h1>sozluk.</h1>
+<br>
+    <!-- Searchbar -->
+    <form action="/search" method="post" class="d-flex justify-content-center">
+        <div class="input-group-text w-50">
+            <span class="input-group-text" id="basic-addon">A</span>
+                <input type="text" class="form-control" autocomplete="off" autofocus placeholder="Search" name="q" action="/search" method="get">
+        </div>
+    </form>
+
+    
+    <!-- Results -->
+    <div class="d-flex justify-content-center">
+        <ul class="list-group w-50" name="result"></ul>
+    </div>
+
+    <script>
+
+        // Dynamic Search (Implemented in similar fashion to https://cdn.cs50.net/2021/fall/lectures/9/src9/shows1/)
+        let input = document.querySelector('input');
+        input.addEventListener('input', async function() {
+            let response = await fetch('/search?q=' + input.value);
+            let words = await response.text();
+            document.querySelector("ul[name='result'").innerHTML = words;
+        });
+
+    </script>
+
+
+{% endblock %}

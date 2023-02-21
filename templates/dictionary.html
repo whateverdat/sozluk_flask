@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+
+{% block title %}
+Dictionary
+{% endblock %}
+
+{%  block dictionary %}
+<div class="d-flex ms-5 justify-content-center position-static">
+        <form action="dictionary" method="post" class="ms-5">
+            <button name="submit" value="{{ words[0][0] }}" class="btn btn-dark ms-5" href="/">Add to your Practice list</button>
+        </form>
+{% endblock %}
+
+{% block main%}
+    {% if session["user_id"] %}
+    
+        {% endif %}
+    </div>
+    <div class="d-flex justify-content-center">
+        <table class="table table-sm table-striped w-50">
+            <thead class="d-flex justify-content-center">
+                <tr>
+                    <th scope="col">{{ words[0][0] }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in words %}
+                
+                <tr>
+                    <td>{{ words[loop.index-1][0] + words[loop.index-1][1]  }}</td>
+                    <td>{{ words[loop.index-1][2] }}</td>
+                </tr>
+                
+                {% endfor %}
+            </tbody>
+        </table>   
+    </div>
+        
+
+{% endblock %}

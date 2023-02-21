@@ -1,0 +1,33 @@
+td a
+{
+    width: 100%;
+    display: block;
+
+}
+
+a
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+h1, h2, h3, h4, h5
+{
+    color: #000000;
+}
+
+.dark
+{
+    background-color:#b6b6b6;
+}
+
+/* PRACTICE SCORE */
+.score-red
+{
+    color: red;
+}
+
+.score-green
+{
+    color: green;
+}

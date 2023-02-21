@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block main %}
+
+<h5>Search Results:</h5>
+<br>
+<div class="d-flex justify-content-center">
+    <table class="table table-sm table-striped w-75">
+    
+        {% for word in words %}
+
+            {% if loop.index != 1 and words[loop.index-2] == words[loop.index-1] %}
+
+            {% else %}
+                
+        
+                <tr role="button">
+                    <td><a href="dictionary/{{ words[loop.index-1][0] }}">{{ words[loop.index-1][0] }}</a></td>
+                </tr>
+        
+
+            {% endif %}
+
+        {% endfor %}
+        
+    <table>   
+</div>
+
+{% endblock %}

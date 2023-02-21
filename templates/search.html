@@ -1,0 +1,22 @@
+{% block main %}
+
+
+
+
+    {% for word in words %}
+
+        {% if loop.index != 1 and words[loop.index-1] == words[loop.index-2] %}
+
+        {% else %}
+            
+            <a href="dictionary/{{ words[loop.index-1][0] }}"><li class="list-group-item list-group-item-action" role='button'>
+            {{ words[loop.index-1][0] }}</li></a>
+
+        {% endif %}
+
+    {% endfor %}
+    
+
+
+
+{% endblock %}

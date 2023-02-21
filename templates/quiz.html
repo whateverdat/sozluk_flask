@@ -1,0 +1,68 @@
+{% extends "index.html" %}
+
+{% block title %}
+Quiz!
+{% endblock %}
+
+{% block main %}
+
+<p class="card-text">Choose a valid definition for the word.</p>
+{% set rand = range(0, 60) | random %}
+    
+    <div id="question-{{ select }}"class="d-flex justify-content-center">
+        <div class="card" style="width: 40rem;">
+            <div class="card-body">
+            <h5 class="card-title"> {{ words[select][0] }}</h5>
+            </div>
+                <form action="quiz" method="post">
+                    <input name="definition" style="display: none;" value="{{ definitions[select][0] }}">
+                    <ul class="list-group list-group-flush" role="button">
+                        {% if rand < 10 %} 
+                        <button class="list-group-item" name="true" value="{{ words[select][0] }}">{{ definitions[select][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        {% elif rand < 20 %} 
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="true" value="{{ words[select][0] }}" >{{ definitions[select][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        {% elif rand < 30 %} 
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="true" value="{{ words[select][0] }}" >{{ definitions[select][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        {% elif rand < 40 %} 
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="true" value="{{ words[select][0] }}">{{ definitions[select][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        {% elif rand < 50 %} 
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="true" value="{{ words[select][0] }}" >{{ definitions[select][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        {% elif rand <= 60 %} 
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="false" value="{{ words[select][0] }}">{{ randoms[ range(0, 600) | random][0] }}</button>
+                        <button class="list-group-item" name="true" value="{{ words[select][0] }}" >{{ definitions[select][0] }}</button>
+                        {% endif %}
+                    </form>
+            </ul>
+        </div>
+    </div>
+    
+{% endblock %}

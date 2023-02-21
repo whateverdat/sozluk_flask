@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Options
+{% endblock %}
+
+{% block main%}
+    
+    <h4>Theme</h4>
+    <div class="mb-3 d-flex justify-content-center">
+        <button id="dark-mode-toggle" type="button" class="btn btn-outline-dark"> Switch </button>
+    </div>
+    <br>
+    <h3>Change Password</h3>
+    <br>
+    <form action="options" method="post">
+        <div class="input-group mb-3 d-flex justify-content-center">
+            <input class="input-group-text" id="username" name="password" placeholder="Password" type="password">
+            <input class="input-group-text" id="password" name="new-password" placeholder="New Password" type="password">
+            <input class="input-group-text" id="confirm" name="confirm" placeholder="Confirm" type="password">    
+        </div>
+        <button class="btn btn-danger" type="submit">Change Password</button>
+    </form>
+
+{% endblock %}
